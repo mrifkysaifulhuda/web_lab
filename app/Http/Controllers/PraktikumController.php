@@ -103,7 +103,7 @@ class PraktikumController extends Controller
     {
         $id_praktikum = $request->input('id_praktikum');
 
-        //$this->insertKebAlatLab($id_praktikum);
+        $this->insertKebAlatLab($id_praktikum);
         $this->insertKebBahanLab($id_praktikum);
         $model = Praktikum::find($id_praktikum);
         $model->status = 'Diajukan';
