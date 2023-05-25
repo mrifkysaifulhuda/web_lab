@@ -43,6 +43,8 @@ class LaboratoriumController extends Controller
        
         if($dataKebLab->count() > 0){
             $data['status'] = 'Disetujui';
+        }else{
+            $data['status'] = '';
         }
         
 		return view('lab/index')->with('data', $data)->with('type_menu', $this->type_menu);
