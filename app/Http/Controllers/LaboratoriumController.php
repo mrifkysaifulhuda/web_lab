@@ -159,7 +159,7 @@ class LaboratoriumController extends Controller
         }
 
 
-        return redirect('/lab');
+        return redirect('/lab/index');
     }
 
     public function Export(Request $request)
