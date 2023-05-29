@@ -93,7 +93,7 @@ class AlatController extends Controller
     public function getComboAlat(Request $request)
     {
         $q = $request->q;
-        $data = $this->model->getCombo($q);
+        $data = $this->model->getCombo(['nm_alat'=> $q, 'id_laboratorium' => Session::get('selected-lab')] );
         $result = array();
         foreach($data as $key => $val){
             array_push($result, array('id' => $key, 'text' => $val));

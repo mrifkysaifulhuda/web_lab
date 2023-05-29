@@ -94,7 +94,7 @@ class BahanController extends Controller
     public function getComboBahan(Request $request)
     {
         $q = $request->q;
-        $data = $this->model->getCombo($q);
+        $data = $this->model->getCombo(['nm_bahan'=> $q, 'id_laboratorium' => Session::get('selected-lab')]);
         $result = array();
         foreach($data as $key => $val){
             array_push($result, array('id' => $key, 'text' => $val));

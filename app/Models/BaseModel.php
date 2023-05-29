@@ -290,7 +290,7 @@ class BaseModel extends Model
 							$q->whereIn($k, $v);
 						}
 					} else {
-						$q->where($k, $v);
+						$q->where($k, 'like', '%' . $v . '%');
 					}
 				}
 			} else {
