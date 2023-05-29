@@ -83,6 +83,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/user/list', [UserController::class, 'getListOfUser'])->name('user.list');
     Route::get('/user/create', [UserController::class, 'create']);
     Route::post('/user/store', [UserController::class, 'store'])->name("user.store");
+    Route::get('/user/destroy/{id}', [UserController::class, 'destroy']);
     Route::get('/user/show/{id}',[UserController::class,'show'])->name('user.show');
     Route::get('/user/laboratorium/{id}',[UserController::class,'laboratorium'])->name('user.laboratorium');
     Route::get('/user/list/{id}',[UserController::class,'getListOfUserLab'])->name('user-lab.list');

@@ -27,7 +27,8 @@ class UserController extends Controller
 
     public function index()
 	{
-		return view('user/index')->with('type_menu', $this->type_menu);
+        
+		return view('user/index')->with('type_menu', $this->type_menu)->with('success', Session::get('success'));
 	}
 
     public function show($id)
@@ -52,7 +53,7 @@ class UserController extends Controller
             return Datatables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function($row){
-                    $actionBtn ='<a href="user/show/'.$row->id. '"class="btn btn-success btn-action mr-1" data-toggle="tooltip" title="" data-original-title="Edit"><i class="far fa-file"></i></a> <a href="user/edit/'.$row->id. '"class="btn btn-primary btn-action mr-1" data-toggle="tooltip" title="" data-original-title="Edit"><i class="fas fa-pencil-alt"></i></a>
+                    $actionBtn ='<a href="user/show/'.$row->id. '"class="btn btn-success btn-action mr-1" data-toggle="tooltip" title="" data-original-title="Edit"><i class="far fa-file"></i></a> 
                     <a href="user/destroy/'.$row->id.'" class="btn btn-danger btn-action" data-toggle="tooltip" title=""  data-original-title="Delete"><i class="fas fa-trash"></i></a>';
                     return $actionBtn;
                 })
@@ -70,9 +71,14 @@ class UserController extends Controller
     {
         $user = User::create($request->validated());
 
-        auth()->login($user);
-
         return redirect('/user')->with('success', "Account successfully registered.");
+    }
+
+    public function destroy($id)
+    {
+        $user = User::find($id);    
+        $user->delete();
+        return redirect('/user')->with('success', "Account successfully deleted.");
     }
 
     public function getListOfUserLab($id)

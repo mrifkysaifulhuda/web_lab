@@ -25,6 +25,16 @@
                   </div>
                 </div>
                 <div class="card-body p-3">
+                @isset($success)
+                  <div class="alert alert-success alert-dismissible show fade">
+                            <div class="alert-body">
+                                <button class="close" data-dismiss="alert">
+                                <span>×</span>
+                                </button>
+                                 {{$success}}
+                            </div>
+                  </div>
+                  @endisset
                   <div class="table-responsive table-invoice">
                     <table class="table table-bordered yajra-datatable">
                     <thead>

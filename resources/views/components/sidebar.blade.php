@@ -1,10 +1,11 @@
 <div class="main-sidebar sidebar-style-2">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="index.html">Silab</a>
+            <h6 class="mt-4" style="color:#000">SILAB Jurusan Teknik Kimia UPNVY</h6>
+            
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">St</a>
+            <a href="index.html">LTK</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Inventori</li>
